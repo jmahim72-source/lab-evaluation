@@ -8,26 +8,37 @@
     <h2>Student Registration Form</h2>
 
     <form action="register.php" method="POST">
-        Name: <input type="text" name="name"><br><br>
-        Email: <input type="email" name="email"><br><br>
-        Phone: <input type="text" name="phone"><br><br>
-        Age: <input type="number" name="age"><br><br>
+        <!-- 1. Text field with 'required' -->
+        Name: <input type="text" name="name" required><br><br>
+
+        <!-- 2. Email format validation with type="email" and 'required' -->
+        Email: <input type="email" name="email" required><br><br>
+
+        <!-- 3. Phone number: 10 digits pattern -->
+        Phone: <input type="tel" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required><br><br>
+
+        <!-- 4. Number range validation with min and max -->
+        Age: <input type="number" name="age" min="15" max="100" required><br><br>
         
+        <!-- 5. Radio group validation: adding required to the first radio validates the group -->
         Gender:
-        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Male" required> Male
         <input type="radio" name="gender" value="Female"> Female
         <input type="radio" name="gender" value="Other"> Other<br><br>
 
+        <!-- 6. Dropdown validation: first option empty ensures user picks one -->
         Branch:
-        <select name="branch">
+        <select name="branch" required>
+            <option value="">-- Select Branch --</option>
             <option value="CSE">CSE</option>
             <option value="ECE">ECE</option>
             <option value="AI & DS">AI & DS</option>
             <option value="IT">IT</option>
         </select><br><br>
 
+        <!-- 7. Address textarea with required -->
         Address:<br>
-        <textarea name="address" rows="3" cols="30"></textarea><br><br>
+        <textarea name="address" rows="3" cols="30" required></textarea><br><br>
 
         <input type="submit" value="Register">
         <input type="reset" value="Reset">
